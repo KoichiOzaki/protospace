@@ -1,3 +1,6 @@
+Protospace is a service for sharing
+ for mentor of Tech::camp 
+
 # TB configuration
 ## TB List
 1. prototypes 
@@ -5,16 +8,15 @@
 3. likes
 4. users
 5. tags
-6. tagtypes
-7. prototype_tags
-8. images
+6. prototype_tags
+7. prototype_images
 
 ## columns & association
 ######1. prototypes
 `belongs_to :user`  
 `has_many :comments`  
 `has_many  :likes`  
-`has_many  :images`  
+`has_many  :prototype_images`  
 `has_many :tags, through: :prototype_tags`  
  - id (integer)
  - user_id (integer)
@@ -48,28 +50,21 @@
  - password (string)
  - member (string)
  - profile (text)
- - works (text)
+ - works (string)
  - avatar
 
 ######5. tags
 `has_many :prototypes, through: :prototype_tags`  
-`belongs_to :tagtype`  
- - id (integer)
- - tagtype_id (integer)
- - name (string)
-
-######6. tagtypes
-`has_many :tags`  
  - id (integer)
  - name (string)
 
-######7. prototype_tags
+######6. prototype_tags
 `belongs_to :user`  
 `belongs_to :prototype`  
  - prototype_id (integer)
  - user_id (integer)
 
-######8. images
+######7. prototype_images
 `belongs_to :prototype`  
  - id (integer)
  - prototype_id (integer)
