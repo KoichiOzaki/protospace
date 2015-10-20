@@ -9,7 +9,7 @@
 7. prototype_tags
 8. images
 
-## column & association
+## columns & association
 ######1. prototypes
 `belongs_to :user`  
 `has_many :comments`  
