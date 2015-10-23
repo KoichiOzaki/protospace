@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'top#index'
 
   resources :top, only: :index
+  resources :login, only: :index
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
