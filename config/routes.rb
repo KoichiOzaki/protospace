@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   resources :top, only: :index
   resources :prototypes, only: [:index, :new]
   resources :login, only: :index
-  resources :user, only: [:index, :new]
-  get  '/user/edit'         =>    'user#edit'
+  resources :users, only: [:index, :new, :edit]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
