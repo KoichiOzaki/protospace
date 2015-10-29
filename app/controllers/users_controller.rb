@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
   def update
     current_user.update(update_params)
-    redirect_to root_path
+    redirect_to root_path, notice: "Update successfully."
   end
   private
   def update_params
