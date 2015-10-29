@@ -16,15 +16,14 @@
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", href: "#", role: "button"}
-              UserName
+              = current_user.username
               %span.caret
             %ul.dropdown-menu{role: "menu"}
               %li
-                %a{href: "#"} Profile Edit
+                =link_to("Profile Edit",edit_user_registration_path)
               %li
                 =link_to("Logout", destroy_user_session_path, method: :delete)
           %li
             .btn.btn-primary.navbar-btn
-              %a{href: "/prototypes/new"}
-                New Proto
+              =link_to("New Proto", "/prototypes/new")
 
