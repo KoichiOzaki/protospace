@@ -4,8 +4,11 @@ class UsersController < ApplicationController
   def edit
   end
   def update
-    current_user.update(update_params)
-    redirect_to root_path, notice: "Update successfully."
+    if current_user.update(update_params)
+      redirect_to root_path, notice: "Update profile successfully."
+    else
+      render :edit
+    end
   end
   private
   def update_params

@@ -1,4 +1,7 @@
 .container.user-new
+  - if current_user.errors.any?
+    %p.alert.alert-danger
+      = current_user.errors.full_messages
   = form_for current_user do |f|
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
