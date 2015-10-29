@@ -2,6 +2,13 @@
   .container.text-center
     = image_tag("header_logo.png", :alt => "PROTO TYPE - SHARE THE PROTOTYPE", :height => "73px")
 
+- if notice
+  %p.alert.alert-success
+    = notice
+- if alert
+  %p.alert.alert-danger
+    = alert
+
 .filter-nav
   .container
     .row
