@@ -7,5 +7,7 @@ class User < ActiveRecord::Base
   # validation
   validates_presence_of :username
   validates_uniqueness_of :username
+  #mount a uploader file of carrierwave
+  mount_uploader :avatar, AvatarUploader
 
 end

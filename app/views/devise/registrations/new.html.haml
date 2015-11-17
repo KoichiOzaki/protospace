@@ -9,9 +9,8 @@
             .user-name.col-md-10
               = f.text_field :username, placeholder: "Username", autofocus: true
             .user-image.col-md-2
-              画像投稿機能は後日実装
               %button.btn.btn-primary Add image
-              %input{ type: "file" }/
+              = f.file_field :avatar
           .user-email
             = f.email_field :email, placeholder: "E-mail"
           .user-password
