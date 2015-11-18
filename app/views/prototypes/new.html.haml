@@ -16,10 +16,14 @@
           %ul.proto-sub-list.list-group
             %li.list-group-item.col-md-4
               .image-upload
-                %input{type: "file"}/
+                = f.fields_for :prototype_images do |i|
+                  = i.file_field :image
+
             %li.list-group-item.col-md-4
               .image-upload
-                %input{type: "file"}/
+                = f.fields_for :prototype_images do |i|
+                  = i.file_field :image
+
             %li.list-group-item.col-md-4
               .image-upload-plus
                 %span +
