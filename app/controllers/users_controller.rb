@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @prototypes = current_user.prototypes.page(params[:page]).includes(:prototype_images)
+    @prototypes = current_user.prototypes.page(params[:page]).eager_load(:prototype_images)
   end
 
   def edit
