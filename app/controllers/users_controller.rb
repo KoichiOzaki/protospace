@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :load_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:edit, :update]
   before_action :redirect_to_top, only: [:edit, :update]
 
   def show
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :member, :profile, :works, :username, :avatar)
   end
 
-  def load_user
+  def set_user
     @user = User.find(params[:id])
   end
 
