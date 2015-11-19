@@ -9,6 +9,13 @@
         %h3
         = prototype.title
         .proto-meta
+          -if controller.controller_name == "top"
+            .proto-user
+              = link_to user_path(prototype.user) do
+                %span.degree
+                = "by #{prototype.user.username}"
+                %span.degree 
+                = "(#{prototype.user.works})"
           .proto-posted
             = prototype.created_at.strftime("%b - %d")
         %ul.proto-tag-list.list-inline
