@@ -8,7 +8,7 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    @prototype = Prototype.new(prototype_params)
+    @prototype = current_user.prototypes.new(prototype_params)
     if @prototype.save
       redirect_to root_path, notice: "Post the new PROTO successfully."
     else
@@ -23,6 +23,6 @@ class PrototypesController < ApplicationController
       :concept,
       :title,
       prototype_images_attributes: [:id, :image, :pr_flag]
-      ).merge(user_id: current_user.id)
+      )
   end
 end
