@@ -1,12 +1,12 @@
 class PrototypesController < ApplicationController
   def index
   end
-  
+
   def new
     @prototype = Prototype.new
     @prototype.prototype_images.build
   end
-  
+
   def create
     @prototype = Prototype.new(prototype_params)
     if @prototype.save
@@ -14,7 +14,6 @@ class PrototypesController < ApplicationController
     else
       render :new
     end
-
   end
 
   private
@@ -26,5 +25,4 @@ class PrototypesController < ApplicationController
       prototype_images_attributes: [:id, :image, :pr_flag]
       ).merge(user_id: current_user.id)
   end
-
 end
