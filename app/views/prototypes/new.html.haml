@@ -12,7 +12,7 @@
           .cover-image-upload
             = f.fields_for :prototype_images do |i|
               = i.file_field :image
-              = i.hidden_field :pr_flag, value: "top"
+              = i.hidden_field :pr_flag, value: "main"
         .col-md-12
           %ul.proto-sub-list.list-group
             %li.list-group-item.col-md-4

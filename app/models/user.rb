@@ -6,8 +6,7 @@ class User < ActiveRecord::Base
   #association
   has_many :prototypes
   # validation
-  validates_presence_of :username
-  validates_uniqueness_of :username
+  validates :username, uniqueness: true, presence: true
   #mount a uploader file of carrierwave
   mount_uploader :avatar, AvatarUploader
 

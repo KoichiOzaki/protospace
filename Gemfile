@@ -39,7 +39,11 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'carrierwave'
 gem 'kaminari'
-gem 'bullet', group: :development
+
+group :development do
+  gem 'bullet'
+end
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
