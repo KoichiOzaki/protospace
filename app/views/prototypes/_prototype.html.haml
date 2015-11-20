@@ -1,0 +1,22 @@
+.col-sm-4.col-md-3.proto-content
+  .thumbnail
+    = link_to "prototypes/#{ prototype.id }" do
+      = image_tag prototype.prototype_images.main.first.image
+      .caption
+        %h3
+        = prototype.title
+        .proto-meta
+          -if controller.controller_name == "top"
+            .proto-user
+              = link_to user_path(prototype.user) do
+                %span.degree
+                = "by #{prototype.user.username}"
+                %span.degree 
+                = "(#{prototype.user.works})"
+          .proto-posted
+            = prototype.created_at.strftime("%b - %d")
+        %ul.proto-tag-list.list-inline
+          %li 
+            = link_to "タグ機能coming soon", "", class: "btn btn-default"
+          %li 
+            = link_to "タグ機能coming soon", "", class: "btn btn-default"
