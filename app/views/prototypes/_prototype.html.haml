@@ -9,7 +9,7 @@
         %li.dropdown
           = link_to "Delete", prototype_path(prototype), method: :delete
   .thumbnail
-    = link_to "prototypes/#{ prototype.id }" do
+    = link_to prototype_path(prototype) do
       = image_tag prototype.prototype_images.main.first.image
       .caption
         %h3

@@ -1,9 +1,12 @@
 class PrototypesController < ApplicationController
-  before_action :set_prototype, only: [:edit, :update]
+  before_action :set_prototype, only: [:show, :edit, :update]
   before_action :authenticate_user!, only: [:new, :edit, :update]
   before_action :check_authority, only: [:edit, :update]
 
   def index
+  end
+
+  def show
   end
 
   def new
