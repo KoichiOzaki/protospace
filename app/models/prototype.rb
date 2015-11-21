@@ -1,6 +1,7 @@
 class Prototype < ActiveRecord::Base
   #association
   has_many :prototype_images, dependent: :delete_all
+  has_many :comments, dependent: :delete_all
   belongs_to :user
 
   accepts_nested_attributes_for :prototype_images,reject_if: proc { |attributes| attributes['image'].blank? }

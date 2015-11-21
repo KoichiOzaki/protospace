@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   #association
   has_many :prototypes
+  has_many :comments
   # validation
   validates :username, uniqueness: true, presence: true
   #mount a uploader file of carrierwave
