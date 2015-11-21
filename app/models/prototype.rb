@@ -1,6 +1,6 @@
 class Prototype < ActiveRecord::Base
   #association
-  has_many :prototype_images , dependent: :destroy
+  has_many :prototype_images, dependent: :delete_all
   belongs_to :user
 
   accepts_nested_attributes_for :prototype_images
