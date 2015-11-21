@@ -32,9 +32,8 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    if @prototype.destroy
-      redirect_to root_path, notice: "Destroy your PROTO successfully."
-    end
+    @prototype.destroy
+    redirect_to root_path, notice: "Destroy your PROTO successfully."
   end
 
   private
