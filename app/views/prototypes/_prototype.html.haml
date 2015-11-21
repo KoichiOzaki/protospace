@@ -19,9 +19,9 @@
             .proto-user
               = link_to user_path(prototype.user) do
                 %span.degree
-                = "by #{prototype.user.username}"
+                = "by #{ prototype.user.username }"
                 %span.degree 
-                = "(#{prototype.user.works})"
+                = "(#{ prototype.user.works })"
           .proto-posted
             = prototype.created_at.strftime("%b - %d")
         %ul.proto-tag-list.list-inline

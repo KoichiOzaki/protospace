@@ -11,11 +11,11 @@
           .proto-user
             = link_to user_path(@prototype.user) do
               %span.degree
-              = "by #{@prototype.user.username}"
-              %span.degree 
-              = "(#{@prototype.user.works})"
-            %span.degree 
-            = "#{@prototype.user.profile}"
+              = "by #{ @prototype.user.username }"
+              %span.degree
+              = "(#{ @prototype.user.works })"
+            %span.degree
+            = "#{ @prototype.user.profile }"
     .col-md-6.text-right
       %button.btn.btn-default
         = image_tag("icon_heart.svg")
