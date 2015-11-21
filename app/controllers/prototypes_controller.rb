@@ -25,7 +25,7 @@ class PrototypesController < ApplicationController
 
   def update
     if @prototype.update(prototype_params)
-      redirect_to root_path, notice: "Update your PROTO successfully."
+      redirect_to action: :show, notice: "Update your PROTO successfully."
     else
       render :edit
     end
