@@ -1,4 +1,8 @@
 class PrototypesController < ApplicationController
+  before_action :set_prototype, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:new, :edit, :update]
+  before_action :check_authority, only: [:edit, :update]
+
   def index
   end
 
@@ -16,6 +20,20 @@ class PrototypesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @prototype.update(prototype_params)
+      redirect_to root_path, notice: "Update your PROTO successfully."
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+  end
+
   private
   def prototype_params
     params.require(:prototype).permit(
@@ -24,5 +42,13 @@ class PrototypesController < ApplicationController
       :title,
       prototype_images_attributes: [:id, :image, :pr_flag]
       )
+  end
+
+  def set_prototype
+    @prototype = Prototype.eager_load(:prototype_images, :user).find(params[:id])
+  end
+
+  def check_authority
+    redirect_to root_path unless @prototype.user == current_user
   end
 end
