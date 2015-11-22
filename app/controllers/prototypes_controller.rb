@@ -4,6 +4,7 @@ class PrototypesController < ApplicationController
   before_action :check_authority, only: [:edit, :update, :destroy]
 
   def show
+    @comment = Comment.new(prototype_id: @prototype.id)
   end
 
   def new
@@ -47,7 +48,7 @@ class PrototypesController < ApplicationController
   end
 
   def set_prototype
-    @prototype = Prototype.eager_load(:prototype_images, :user).find(params[:id])
+    @prototype = Prototype.eager_load(:prototype_images, :user, { comments: :user }).find(params[:id])
   end
 
   def check_authority
