@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   root 'top#index'
 
   resources :top, only: :index
-  resources :prototypes, except: [:index]
+  resources :prototypes, except: [:index] do
+    resources :comments, only: [:create]
+  end
   resources :users, only: [:show, :edit, :update]
 end
