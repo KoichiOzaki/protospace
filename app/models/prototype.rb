@@ -3,7 +3,7 @@ class Prototype < ActiveRecord::Base
   has_many :prototype_images, dependent: :delete_all
   belongs_to :user
 
-  accepts_nested_attributes_for :prototype_images
+  accepts_nested_attributes_for :prototype_images,reject_if: proc { |attributes| attributes['image'].blank? }
 
   #validation
   validates_presence_of :title, :catchcopy, :concept
