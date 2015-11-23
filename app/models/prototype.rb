@@ -13,7 +13,7 @@ class Prototype < ActiveRecord::Base
   #default per_page value for kaminari gem
   paginates_per 8
 
-  def like_exit?(current_user)
+  def like_exists?(current_user)
     likes.exists?(user_id: current_user.id) if :authenticate_user!
   end
 
