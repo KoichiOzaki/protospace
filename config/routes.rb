@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'top#index'
+  post 'like/:prototype_id' => 'likes#create', as: 'like'
+  delete 'like/:prototype_id' => 'likes#destroy', as: 'destroy_like'
 
   resources :top, only: :index
   resources :prototypes, except: [:index] do
