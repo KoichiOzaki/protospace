@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   #association
   has_many :prototypes
   has_many :comments
+  has_many :likes
   # validation
   validates :username, uniqueness: true, presence: true
   #mount a uploader file of carrierwave
