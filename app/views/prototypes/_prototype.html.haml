@@ -1,6 +1,15 @@
 .col-sm-4.col-md-3.proto-content
+  - if prototype.user == current_user
+    .dropdown.dropdown_absolute
+      %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", href: "#", role: "button"}
+        Action
+      %ul.dropdown-menu
+        %li.dropdown
+          = link_to "Edit", edit_prototype_path(prototype)
+        %li.dropdown
+          = link_to "Delete", prototype_path(prototype), method: :delete
   .thumbnail
-    = link_to "prototypes/#{ prototype.id }" do
+    = link_to prototype_path(prototype) do
       = image_tag prototype.prototype_images.main.first.image
       .caption
         %h3
@@ -10,9 +19,9 @@
             .proto-user
               = link_to user_path(prototype.user) do
                 %span.degree
-                = "by #{prototype.user.username}"
+                = "by #{ prototype.user.username }"
                 %span.degree 
-                = "(#{prototype.user.works})"
+                = "(#{ prototype.user.works })"
           .proto-posted
             = prototype.created_at.strftime("%b - %d")
         %ul.proto-tag-list.list-inline

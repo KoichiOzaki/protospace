@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   root 'top#index'
 
   resources :top, only: :index
-  resources :prototypes, only: [:index, :new, :create]
+  resources :prototypes, except: [:index]
   resources :users, only: [:show, :edit, :update]
-
 end

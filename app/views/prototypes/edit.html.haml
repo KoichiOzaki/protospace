@@ -10,24 +10,20 @@
       .row
         .col-md-12
           .cover-image-upload
-            = f.fields_for :prototype_images do |i|
+            = f.fields_for :prototype_images , @prototype.prototype_images.main.first do |i|
               = i.file_field :image
               = i.hidden_field :pr_flag, value: "main"
         .col-md-12
           %ul.proto-sub-list.list-group
-            %li.list-group-item.col-md-4
-              .image-upload
-                = f.fields_for :prototype_images do |i|
-                  = i.file_field :image
-                  = i.hidden_field :pr_flag, value: "sub"
-            %li.list-group-item.col-md-4
-              .image-upload
-                = f.fields_for :prototype_images do |i|
-                  = i.file_field :image
-                  = i.hidden_field :pr_flag, value: "sub"
-            %li.list-group-item.col-md-4
-              .image-upload-plus
-                %span +
+        - @prototype.prototype_images.sub.each do |sub|
+          %li.list-group-item.col-md-4
+            .image-upload
+              = f.fields_for :prototype_images, sub do |i|
+                = i.file_field :image
+                = i.hidden_field :pr_flag, value: "sub"
+        %li.list-group-item.col-md-4
+          .image-upload-plus
+            %span +
       .row.proto-description
         .col-md-12
           = f.text_field :catchcopy, placeholder:"Catch Copy"
@@ -44,4 +40,3 @@
               %input{type: "text", placeholder: "Application"}/
       .row.text-center.proto-btn
         %button.btn.btn-lg.btn-primary.btn-block{type: "submit"} Publish
-
