@@ -5,6 +5,7 @@ class PrototypesController < ApplicationController
 
   def show
     @comment = Comment.new(prototype_id: @prototype.id)
+    @likes = @prototype.likes
   end
 
   def new
