@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def create
-      Comment.create(comment_params) if authenticate_user!
-      redirect_to :back, notice: "Post the new Comment successfully."
+      Comment.create(comment_params)
+      @prototype = Prototype.eager_load({ comments: :user }).find(params[:prototype_id])
   end
 
   private

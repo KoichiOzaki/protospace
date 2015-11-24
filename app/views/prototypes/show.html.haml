@@ -61,14 +61,16 @@
   .row.proto-comments
     %h4.col-md-12
       Comments
-      %span.num (#{ @prototype.comments.count }) 
+      %span.num#comments_count (#{ @prototype.comments.count })
     .col-md-8
-      = render partial: "comments/comment", collection: @prototype.comments
-      %h4 Write a comment
-      = form_for [@prototype, @comment], class: "form-inline", role: "form" do |f|
-        .row
-          .form-group.col-md-10
-            = f.text_area :comment ,placeholder: "Your comments", rows: "3", class: "form-control"
-          .form-group.col-md-2
-            %button.btn.btn-primary Comment
+      #render_comments
+        = render partial: "comments/comment", collection: @prototype.comments
+      - if user_signed_in?
+        %h4 Write a comment
+        = form_for [@prototype, @comment], class: "form-inline", role: "form", remote: true do |f|
+          .row
+            .form-group.col-md-10
+              = f.text_area :comment ,placeholder: "Your comments", rows: "3", class: "form-control", id: "comment_area"
+            .form-group.col-md-2
+              %button.btn.btn-primary Comment
 
