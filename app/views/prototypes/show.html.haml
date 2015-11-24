@@ -22,20 +22,8 @@
               = "(#{ @prototype.user.works })"
             %span.degree
             = "#{ @prototype.user.profile }"
-    .col-md-6.text-right
-      -if user_signed_in?
-        -if @prototype.like_exists?(current_user)
-          = link_to like_path(@prototype), method: :delete do
-            %button.btn.btn-default{type: "submit"}
-              = image_tag("icon_heart.svg")
-              Like
-              %span.num #{ @likes.count }
-        - else
-          = link_to destroy_like_path(@prototype), method: :post do
-            %button.btn.btn-default{type: "submit"}
-              = image_tag("icon_heart.svg")
-              Like
-              %span.num #{ @likes.count }
+    .col-md-6.text-right#like_button
+      = render "likes/button"
   .row
     .col-md-9
       = image_tag(@prototype.prototype_images.main.first.image, class: 'img-responsive')
