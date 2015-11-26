@@ -2,18 +2,21 @@
   -if @prototype.like_exists?(current_user)
     = link_to like_path(@prototype), method: :delete, remote: true do
       %button.btn.btn-default{type: "submit"}
-        = image_tag("icon_heart.svg")
+        = image_tag("icon_redheart.svg")
         Like
-        %span.num#like_count #{ @prototype.likes.count }
+        %span.num#like_count
+          = @prototype.likes.count
   - else
     = link_to destroy_like_path(@prototype), method: :post, remote: true do
       %button.btn.btn-default{type: "submit"}
         = image_tag("icon_heart.svg")
         Like
-        %span.num #{ @prototype.likes.count }
+        %span.num
+          = @prototype.likes.count
 - else
   = link_to new_user_session_path do
     %button.btn.btn-default{type: "submit"}
       = image_tag("icon_heart.svg")
       Like
-      %span.num #{ @prototype.likes.count }
+      %span.num
+        = @prototype.likes.count
