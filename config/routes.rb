@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'top#index'
+  get 'newest' => 'top#newest', as: 'newest'
   post 'like/:prototype_id' => 'likes#create', as: 'like'
   delete 'like/:prototype_id' => 'likes#destroy', as: 'destroy_like'
 
