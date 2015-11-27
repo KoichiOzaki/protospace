@@ -44,6 +44,9 @@ class PrototypesController < ApplicationController
       :catchcopy,
       :concept,
       :title,
+      :design_list,
+      :ui_list,
+      :application_list,
       prototype_images_attributes: [:id, :image, :pr_flag]
       )
   end
