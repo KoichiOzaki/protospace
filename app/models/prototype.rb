@@ -13,7 +13,8 @@ class Prototype < ActiveRecord::Base
   #default per_page value for kaminari gem
   paginates_per 8
 
-  acts_as_taggable
+  # acts_as_taggable
+  acts_as_ordered_taggable_on :designs, :uis, :applications
 
   def like_exists?(current_user)
     likes.exists?(user_id: current_user.id) if :authenticate_user!
