@@ -39,6 +39,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'carrierwave'
 gem 'kaminari'
+gem 'acts-as-taggable-on'
 
 group :development do
   gem 'bullet'
