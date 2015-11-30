@@ -11,11 +11,11 @@
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
-        %li.active{:role => "presentation"}
+        %li.active{ role: "presentation" }
           = link_to "Popular PROTO", root_path
-        %li{:role => "presentation"}
+        %li{ role: "presentation" }
           = link_to "Newest PROTO", newest_top_index_path
-      %button{:type => "button", :class => "btn btn-default col-lg-1"} View Tags
+      %button{ type: "button", class: "btn btn-default col-lg-1" } View Tags
 .container.proto-list
   .row
     = render partial: "prototypes/prototype", collection: @prototypes
