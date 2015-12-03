@@ -22,8 +22,27 @@
               = "(#{ @prototype.user.works })"
             %span.degree
             = "#{ @prototype.user.profile }"
-    .col-md-6.text-right#like_button
-      = render "likes/button"
+    .col-md-6.text-right
+      -if user_signed_in?
+        -if @prototype.like_exists?(current_user)
+          %button.btn.btn-default.like_destroy#like_btn{data: {id: @prototype.id}}
+            = image_tag("icon_redheart.svg")
+            Like
+            %span.num#like_count
+              = @prototype.likes.count
+        - else
+          %button.btn.btn-default.like_create#like_btn{data: {id: @prototype.id}}
+            = image_tag("icon_heart.svg")
+            Like
+            %span.num#like_count
+              = @prototype.likes.count
+      - else
+        = link_to new_user_session_path do
+          %button.btn.btn-default{type: "submit"}
+            = image_tag("icon_heart.svg")
+            Like
+            %span.num
+              = @prototype.likes.count
   .row
     .col-md-9
       = image_tag(@prototype.prototype_images.main.first.image, class: 'img-responsive')
