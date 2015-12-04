@@ -1,8 +1,8 @@
 function like_btn() {
   $('#like_btn').on('click', function() {
-    var $button = $(this);
-    var $img = $("#like_btn img");
-    var $like_count = $("#like_count");
+    $button = $(this);
+    $img = $("#like_btn img");
+    $like_count = $("#like_count");
     var id = $(this).attr('data-id');
     $button.attr("disabled", true);
     if ($button.hasClass("like_create")) {
