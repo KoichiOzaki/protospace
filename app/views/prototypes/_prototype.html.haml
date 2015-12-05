@@ -24,8 +24,7 @@
                 = "(#{ prototype.user.works })"
           .proto-posted
             = prototype.created_at.strftime("%b - %d")
-        %ul.proto-tag-list.list-inline
-          %li 
-            = link_to "タグ機能coming soon", "", class: "btn btn-default"
-          %li 
-            = link_to "タグ機能coming soon", "", class: "btn btn-default"
+    %ul.proto-tag-list.list-inline
+      - prototype.tags.each do |tag|
+        %li
+          = link_to tag, tag_path(tag.name), class: "btn btn-default"

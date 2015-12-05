@@ -1,6 +1,6 @@
 class TopController < ApplicationController
   def index
-    @prototypes = Prototype.order(likes_count: :desc).page(params[:page]).eager_load(:prototype_images, :user)
+    @prototypes = Prototype.order(likes_count: :desc).page(params[:page]).eager_load(:prototype_images, :user, :tags)
   end
 
   def newest
