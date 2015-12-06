@@ -4,6 +4,6 @@ class TopController < ApplicationController
   end
 
   def newest
-    @prototypes = Prototype.order(created_at: :desc).page(params[:page]).eager_load(:prototype_images, :user)
+    @prototypes = Prototype.order(created_at: :desc).page(params[:page]).eager_load(:prototype_images, :user, :tags)
   end
 end
