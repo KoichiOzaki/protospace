@@ -1,0 +1,16 @@
+.container
+  %h4 Tag List(Web Design)
+  .row
+    - @designs_tags.each do |tag|
+      .col-sm-2.col-md-2.btn.btn-default
+        = link_to tag, tag_path(tag.name)
+  %h4 Tag List(UI)
+  .row
+    - @uis_tags.each do |tag|
+      .col-sm-2.col-md-2.btn.btn-default
+        = link_to tag, tag_path(tag.name)
+  %h4 Tag List(Application)
+  .row
+    - @applications_tags.each do |tag|
+      .col-sm-2.col-md-2.btn.btn-default
+        = link_to tag, tag_path(tag.name)
