@@ -6,6 +6,6 @@ class TagsController < ApplicationController
   end
 
   def show
-    @prototypes = Prototype.tagged_with(params[:tag_name]).eager_load(:user).page(params[:page])
+    @prototypes = Prototype.tagged_with(params[:tag_name]).eager_load(:user, :tags).page(params[:page])
   end
 end
