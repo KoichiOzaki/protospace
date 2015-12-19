@@ -36,9 +36,11 @@ gem 'pry-rails'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'bootstrap-sass'
+gem 'bootstrap-tagsinput-rails'
 gem 'devise'
 gem 'carrierwave'
 gem 'kaminari'
+gem 'acts-as-taggable-on'
 
 group :development do
   gem 'bullet'

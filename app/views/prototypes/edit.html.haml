@@ -33,10 +33,10 @@
           %h4 Tag List
           .row
             .col-md-3
-              %input{type: "text", placeholder: "Web Design"}/
+              = text_field_tag '[prototype][design_list]', @prototype.design_list.join(','), placeholder: "Web Design", 'data-role'=>'tagsinput'
             .col-md-3
-              %input{type: "text", placeholder: "UI"}/
+              = text_field_tag '[prototype][ui_list]', @prototype.ui_list.join(','), placeholder: "UI", 'data-role'=>'tagsinput'
             .col-md-3
-              %input{type: "text", placeholder: "Application"}/
+              = text_field_tag '[prototype][application_list]', @prototype.application_list.join(','), placeholder: "Application", 'data-role'=>'tagsinput'
       .row.text-center.proto-btn
         %button.btn.btn-lg.btn-primary.btn-block{type: "submit"} Publish

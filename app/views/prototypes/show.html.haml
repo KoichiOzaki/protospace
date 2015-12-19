@@ -59,12 +59,21 @@
       %h4 Concept
       %p #{ @prototype.concept }
     .col-md-3
-      %h4 Tag List機能 comming soon
+      %h4 Tag List(Web Design)
       %ul.proto-tag-list.list-inline
-        %li 
-          %a{href: "#", class: "btn btn-default"} iPad
-        %li 
-          %a{href: "#", class: "btn btn-default"} wireframe
+        - @prototype.design_list.each do |design_tag|
+          %li
+            = link_to design_tag, tag_path(design_tag), :class  => "btn btn-default"
+      %h4 Tag List(UI)
+      %ul.proto-tag-list.list-inline
+        - @prototype.ui_list.each do |ui_tag|
+          %li
+            = link_to ui_tag, tag_path(ui_tag), :class  => "btn btn-default"
+      %h4 Tag List(Application)
+      %ul.proto-tag-list.list-inline
+        - @prototype.application_list.each do |application_tag|
+          %li
+            = link_to application_tag, tag_path(application_tag), :class  => "btn btn-default"
   .row.proto-comments
     %h4.col-md-12
       Comments
