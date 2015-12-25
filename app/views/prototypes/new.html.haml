@@ -19,20 +19,10 @@
               .image-upload.js-file
                 = f.fields_for :prototype_images do |i|
                   = i.file_field :image, class: "js-inputFile"
-                  = i.hidden_field :pr_flag, value: "sub"
-            %li.list-group-item.col-md-4
-              .image-upload.js-file
-                = f.fields_for :prototype_images do |i|
-                  = i.file_field :image, class: "js-inputFile"
-                  = i.hidden_field :pr_flag, value: "sub"
+                  = i.hidden_field :pr_flag, value: "sub", class: "js-prFlag"
             %li.list-group-item.col-md-4.js-plus
               .image-upload-plus
                 %span +
-            %li.list-group-item.col-md-4.js-plus-uploader{ style: "display:none" }
-              .image-upload.js-file
-                = f.fields_for :prototype_images do |i|
-                  = i.file_field :image, class: "js-inputFile"
-                  = i.hidden_field :pr_flag, value: "sub"
       .row.proto-description
         .col-md-12
           = f.text_field :catchcopy, placeholder:"Catch Copy"

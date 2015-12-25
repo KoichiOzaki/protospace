@@ -16,13 +16,20 @@
               = i.hidden_field :pr_flag, value: "main"
         .col-md-12
           %ul.proto-sub-list.list-group
-            - @prototype.prototype_images.sub.each do |sub|
+            - if @prototype.prototype_images.sub.blank?
               %li.list-group-item.col-md-4
                 .image-upload.js-file
-                  = f.fields_for :prototype_images, sub do |i|
+                  = f.fields_for :prototype_images do |i|
                     = i.file_field :image, class: "js-inputFile"
-                    = image_tag i.object.image, class: "img-preview", style: "width: 100%; height: 100%;"
-                    = i.hidden_field :pr_flag, value: "sub"
+                    = i.hidden_field :pr_flag, value: "sub", class: "js-prFlag"
+            - else
+              - @prototype.prototype_images.sub.each do |sub|
+                %li.list-group-item.col-md-4
+                  .image-upload.js-file
+                    = f.fields_for :prototype_images, sub do |i|
+                      = i.file_field :image, class: "js-inputFile"
+                      = image_tag i.object.image, class: "img-preview", style: "width: 100%; height: 100%;"
+                      = i.hidden_field :pr_flag, value: "sub", class: "js-prFlag"
             %li.list-group-item.col-md-4.js-plus
               .image-upload-plus
                 %span +
