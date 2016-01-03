@@ -8,8 +8,7 @@ function image_prev() {
       $.each(evt.target.files, function(i, elm) {
         var file = this,
             fileName = file.name,
-            reader;
-        reader = new FileReader();
+            reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onloadend = function(evt) {
           var fileReader = this;
