@@ -16,14 +16,14 @@
               = i.hidden_field :pr_flag, value: "main"
         .col-md-12
           %ul.proto-sub-list.list-group
-            - if @prototype.prototype_images.sub.blank?
+            - if get_images_sub(@prototype).blank?
               %li.list-group-item.col-md-4
                 .image-upload.js-file
                   = f.fields_for :prototype_images do |i|
                     = i.file_field :image, class: "js-inputFile"
                     = i.hidden_field :pr_flag, value: "sub", class: "js-prFlag"
             - else
-              - @prototype.prototype_images.sub.each do |sub|
+              - get_images_sub(@prototype).each do |sub|
                 %li.list-group-item.col-md-4
                   .image-upload.js-file
                     = f.fields_for :prototype_images, sub do |i|
