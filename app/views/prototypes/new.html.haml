@@ -19,13 +19,8 @@
               .image-upload.js-file
                 = f.fields_for :prototype_images do |i|
                   = i.file_field :image, class: "js-inputFile"
-                  = i.hidden_field :pr_flag, value: "sub"
-            %li.list-group-item.col-md-4
-              .image-upload.js-file
-                = f.fields_for :prototype_images do |i|
-                  = i.file_field :image, class: "js-inputFile"
-                  = i.hidden_field :pr_flag, value: "sub"
-            %li.list-group-item.col-md-4
+                  = i.hidden_field :pr_flag, value: "sub", class: "js-prFlag"
+            %li.list-group-item.col-md-4.js-plus
               .image-upload-plus
                 %span +
       .row.proto-description
@@ -44,4 +39,3 @@
               = text_field_tag '[prototype][application_list]', @prototype.application_list.join(','), placeholder: "Application", 'data-role'=>'tagsinput'
       .row.text-center.proto-btn
         %button.btn.btn-lg.btn-primary.btn-block{type: "submit"} Publish
-
