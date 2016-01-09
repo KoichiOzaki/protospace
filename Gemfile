@@ -41,6 +41,8 @@ gem 'devise'
 gem 'carrierwave'
 gem 'kaminari'
 gem 'acts-as-taggable-on'
+gem 'fog'
+gem 'config'
 
 group :development do
   gem 'bullet'
